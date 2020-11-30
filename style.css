@@ -1,28 +1,47 @@
-body{
-    background-image: url(https://www.shutterstock.com/blog/black-background-design-for-websites);
-    background-repeat: no-repeat;
-    background-position: center;
+body
+{background-image: url(https://www.google.com/search?q=fue&client=opera&hs=Ljj&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj359vZ5KDtAhUwVBUIHYplC4kQ_AUoAXoECA0QAw&biw=1880&bih=938#imgrc=DIabRLMkpO-BCM);
+background-color:grey;
+background-repeat: no-repeat;
+background-position: center;}
+.title
+{text-align:center;}
+ul
+{list-style-type: none;
+border:1px solid #e7e7e7;
+background-color: #f3f3f3;
+overflow: hidden;
+padding:0px;
+margin:0px;;}
+li
+{float: left;}
+a{text-decoration: none;
+color: rgb(8, 32, 78);}
+li a
+{display: block;
+color: rgb(12, 12, 12);
+padding-right: 25px;
+padding-left: 25px;
+padding-top:25px;
+padding-bottom:25px;}
+li a:hover
+{color:white;
+background-color: #dddddd;}
+li a.active{
+    background-color: rgb(59, 72, 182);
+    color: white;
 }
-title{
-text-align: center;
+
+.nav-right{float: right;}
+div
+{border:3px solid white;
+/border-radius:15px;/
+border-style:dotted;
+background-image: linear-gradient(orange,indigo);
 }
-ul{
-    list-style-type: none;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-}
-li{
-    float: left;
-}
-a{
-    text-decoration: none;
-    color: darkred;
-}
-li a{
-    display: block;
-    color: darkslateblue;
-    padding-right: 25px;
-    padding-left: 25px;
-    padding-top: 25px;
-    padding-bottom: 25px;
-}
+table{width:100%;
+color: white;}
+thead tr{text-align: center;
+background-color:rgb(59, 72, 182) ;
+color: white;
+font: bold;
+font-size: x-large;}
