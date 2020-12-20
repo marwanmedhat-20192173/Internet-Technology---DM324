@@ -1,59 +1,164 @@
 <html>
     <head>
-
+        <title>student list</title>
+        <link rel="stylesheet"type="text/css"href="style.css">
+        <script>
+            var dataSource = [["20192173","Marwan","20192173@fue.edu.eg","url or image id"]
+                              ["20194813","Ziad","20194813@fue.edu.eg","url pr image id"]];
+    
+                              //document.writeln("<h1> Heading </h1>");
+                              document.getElementById("myTable").innerHTML=table;
+        </script>
     </head>
-    <title>student list</title>
-    <link rel="stylesheet"type="text/css"href="style.css">
     <body>
-<nav><ul>
+    <body onload="intin();">
+<nav>
+    <ul>
     <li><a href=login.html target="_blank"class="nav">login</a></li>
         <li><a href=index.html target="_blank"class="nav">home</a></li> 
         <li><a href="#"class="active"> student list</a></li>
         <li><a href=StudentInfo.html target="_blank"class="nav"> new student</a></li>
         <li class="nav-right"><a href="#">logout</a></li>
-   </ul> </nav>
-      <table border=4>
-          <tr>
-              <td>Name</td>
-              <td>ID</td>
-              <td>Email</td>
-              <td>Image</td>
-          </tr>
-          <tr>
-              <td>Marwan Medhat</td>
-              <td>20192173</td>
-              <td>20192173@fue.edu.eg</td>
-              <td><img src="C:\xampp\htdocs\Internet-Technology---DM324\Stitch_(Lilo_&_Stitch).svg.png" alt="stetch"width=100 height=100></td>
-          </tr>
-          <tr>
-              <td colspan=2>
-                  <ol>
-                  <li>
-                      20194813 Ziad
-                    </li>
-            </ol>
-        </td>
-              
-              <td>
-                  20194813@fue.edu.eg
-                </td>
-              <td>
-                  <img src="C:\xampp\htdocs\Internet-Technology---DM324\Stitch_(Lilo_&_Stitch).svg.png" alt="stetch"width=100 height=100></td>
-          </tr>
-          <tfoot>
-              <tr>
-                <td colspan=4>
-                    total num of student is 2
-                </td>
-              </tr>
-          </tfoot>
-      </table>
+   </ul>
+</nav>
+<hr>
+<section>
+    <div class="searchbar">
+        <p>
+            <input type="search" class id="txtSearch" oninput="mySearch()">
+        </p>
+    </div>
+    <div id="myTable"> </div>
+    <table border="4"><thead>
+        <tr>
+            <td>name</td>
+            <td>id</td>
+            <td>Email</td>
+            <td>Photo</td>
+        </tr>
+        <tr>
+            <tbody>
+            <td>marwan</td>
+            <td >20192173 </td>
+            <td>20192173@fue.edu.eg</td>
+            <td><img src="Stitch_(Lilo_&_Stitch).svg.png" alt="stitch" width=100 height=100></td></tr>
+            <tr>
+            <td>Ziad</td>
+            <td >20194813 </td>
+            <td>20194813@fue.edu.eg</td>
+            <td><img src="Stitch_(Lilo_&_Stitch).svg.png" alt="stitch" width=100 height=100></td>
+        </tr>
+   <tfoot><tr><td colspan=4>total no. of student= 2</td></tr></tfoot></thead></table>
+    </body>
     <footer>
         <a href=https://www.fue.edu.eg/ target=_blank>&copy; Future University
             <a href=mailto:20192173@fue.edu.eg>contact us
         
     </a>
 </footer>
-    
+    <script>
+        function init()
+    {
+         var table = "";
+         table = table + "<table border='4'>" + 
+            "<thead>" +
+          "<tr>"+
+               "<td> ID </td>"+
+               "<td> Name </td>"+ 
+               "<td> Email </td>"+ 
+               "<td> image </td>"+
+            "</tr>"+
+        "</thead>"+
+        "<tbody>";
+        //body part
+        var counter = 0; //count number of students
+        for(var i=0; i<dataSource.length; i++)
+        {
+            var StudentID = dataSource[i][0];
+            var StudentName = dataSource[i][1];
+            var StudentEmail = dataSource[i][2];
+            var StudentPhoto = dataSource[i][3];
+            table += "<tr>";
+                table += "<td>"+ StudentId +"</td>";
+                table += "<td>"+ StudentName +"</td>";
+                table += "<td>"+ StudentEmail +"</td>";
+                table += "<td>"+ Studentimage +"</td>";
+            table += "</tr>";
+            counter++;
+        }
+        table += "</tbody>"+
+        "</foot>"+
+            "<tr>"+
+                "<td colspan='4'> Sudent Number=" + counter +"</td>"+
+            "</tr>"+
+        "</tfoot>"+
+    "</table>";
+        document.getElementById("myTable").innerHTML = table;                
+    }
+    function mySearch()
+    {
+        var input = document.getElementById("txtSearch").value;
+        console.log(input);
+        searchAlgorithm(input);
+    }
+    function searchAlgorithm(input)
+    {
+        var flat = [].concat.apply([],dataSource);
+        console.log(flat);
+        var col = flat.indexof(input);
+        console.log(col);
+        var row = -1;
+        if(col != -1)
+        {
+            while(dataSource[++row].length <= col)
+            {
+                col = col - dataSource[row].length;
+            }
+            //return row; //return for array but didn't draw yet
+            drawResultTable(row);
+        } 
+        else
+        {
+            int();
+        }
+        function drawResultTable(row)
+        {
+            var table = "";
+        table = table + "<table border='4'>"+
+                 "thead>"+
+                 "<tr>"+
+                    "<td> ID </td>"+
+                    "<td> Name </td>"+
+                    "<td> Email </td>"+
+                    "<td> image </td>"+
+                "</tr>"+
+            "</thead>"+
+            
+            "<tbody>";
+                //body part
+                var counter = 0;
+                var StudentID = dataSource[row][0];
+                var StudentName = dataSource[row][1];
+                var StudentEmail = dataSource[row][2];
+                var Studentimage = dataSource[row][3];
+                table += "<tr>";
+                    table += "<td>"+ StudentID +"</td>";
+                    table += "<td>"+ StudentName +"</td>";
+                    table += "<td>"+ StudentEmail +"</td>";
+                    table += "<td>"+ Studentimage +"</td>";
+                table += "</tr>";
+                counter ++;
+            table += "</tbody>"+
+            "<tfoot>"+
+                "<tr>"+
+                    "<td colspan='4'> Student Number=" + counter +" </td>"+
+                "</tr>"+
+            "</tfoot>"+
+            "</table>";
+            document.getElementById("myTable").innerHTML = table;
+        }
+    }
+
+    </script>
 </body>
 </html>
